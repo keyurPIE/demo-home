@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="h-screen">
       {loading ? (
-        <Box className="flex items-center justify-center h-screen bg-white">
+        <Box className="flex items-center justify-center min-h-screen bg-white">
           <Oval color="#00BFFF" height={80} width={80} />
         </Box>
       ) : (

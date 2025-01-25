@@ -20,5 +20,9 @@ export default function MainContainer({ value }) {
         );
     }
   };
-  return <Box sx={{ flexGrow: 1, display: "flex" }}>{renderContent()}</Box>;
+  return (
+    <Box sx={{ flexGrow: 1, display: "flex" }} className="px-1 h-full">
+      {renderContent()}
+    </Box>
+  );
 }

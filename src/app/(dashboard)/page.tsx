@@ -1,6 +1,11 @@
 "use client";
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import {
+  createTheme,
+  styled,
+  ThemeProvider,
+  useTheme,
+} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -66,6 +71,18 @@ const AppBar = styled(MuiAppBar, {
   ],
 }));
 
+const mainTheme = createTheme({
+  typography: {
+    fontWeightLight: 600,
+    fontWeightRegular: 600,
+    fontWeightMedium: 600,
+    fontWeightBold: 600,
+    button: {
+      fontWeight: 600, // Ensure buttons have font weight 600
+    },
+  },
+});
+
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -106,51 +123,53 @@ export default function Dashboard() {
   };
 
   return (
-    <Box sx={{ display: "flex", height: "100%" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        open={open}
-        sx={{
-          backgroundColor: "#fff",
-          boxShadow: "none",
-          border: "2px solid #D6D6D6",
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[{ mr: 2 }, open && { display: "none" }]}
-          >
-            <MenuIcon />
-          </IconButton>
-          <AppBarHeader />
-        </Toolbar>
-      </AppBar>
+    <ThemeProvider theme={mainTheme}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          open={open}
+          sx={{
+            backgroundColor: "#fff",
+            boxShadow: "none",
+            border: "2px solid #D6D6D6",
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={[{ mr: 2 }, open && { display: "none" }]}
+            >
+              <MenuIcon />
+            </IconButton>
+            <AppBarHeader />
+          </Toolbar>
+        </AppBar>
 
-      {/* side bar component */}
-      <Sidebar
-        open={open}
-        onClose={() => setOpen(false)}
-        onItemClick={handleItemClick}
-        currentSelection={currentUrl}
-        variant={isMobile ? "temporary" : "persistent"}
-        anchor="left" // Sidebar opens from the left by default
-      />
+        {/* side bar component */}
+        <Sidebar
+          open={open}
+          onClose={() => setOpen(false)}
+          onItemClick={handleItemClick}
+          currentSelection={currentUrl}
+          variant={isMobile ? "temporary" : "persistent"}
+          anchor="left" // Sidebar opens from the left by default
+        />
 
-      {/* Main */}
-      <Main open={open}>
-        {loading ? (
-          <Loading /> // Show loading spinner while loading
-        ) : (
-          <React.Suspense fallback={<Loading />}>
-            <DrawerHeader />
-            <MainContainer value={currentUrl} />
-          </React.Suspense>
-        )}
-      </Main>
-    </Box>
+        {/* Main */}
+        <Main open={open}>
+          {loading ? (
+            <Loading /> // Show loading spinner while loading
+          ) : (
+            <React.Suspense fallback={<Loading />}>
+              <DrawerHeader />
+              <MainContainer value={currentUrl} />
+            </React.Suspense>
+          )}
+        </Main>
+      </Box>
+    </ThemeProvider>
   );
 }
