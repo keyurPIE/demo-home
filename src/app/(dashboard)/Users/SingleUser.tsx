@@ -6,11 +6,13 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PropTypes from "prop-types";
-import PersonIcon from "@mui/icons-material/Person";
 import UserProfileTab from "./SingleUserTab/UserProfileTab";
 import UserTeamsTab from "./SingleUserTab/UserTeamsTab";
 import UserProjectsTab from "./SingleUserTab/UserProjectsTab";
 import UserConnectionsTab from "./SingleUserTab/UserConnectionsTab";
+import constant from "@/app/utils/constant";
+
+const { TabWithIcon } = constant;
 
 function CustomTabPanel(props: any) {
   const { children, value, index, ...other } = props;
@@ -27,13 +29,6 @@ function CustomTabPanel(props: any) {
     </div>
   );
 }
-
-const TabWithIcon = [
-  { label: "Profile", icon: <PersonIcon /> },
-  { label: "Teams", icon: <PersonIcon /> },
-  { label: "Projects", icon: <PersonIcon /> },
-  { label: "Connections", icon: <PersonIcon /> },
-];
 
 CustomTabPanel.propTypes = {
   children: PropTypes.node,
@@ -57,8 +52,8 @@ export default function SingleUser() {
 
   return (
     <section className="h-full flex flex-col gap-8">
-      <div className="border-2 rounded-lg shadow-lg w-full h-80 max-h-80">
-        <div className="h-[220px] bg-slate-400 rounded-t-lg">
+      <div className="border-2 rounded-lg shadow-lg w-full h-full md:h-80 md:max-h-80">
+        <div className="h-auto md:h-[220px] bg-slate-400 rounded-t-lg">
           <Image
             src="/profile-banner.png"
             alt="profile-banner"
@@ -67,17 +62,17 @@ export default function SingleUser() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="h-[100px] px-5 py-3 flex gap-3">
-          <div className="relative h-[100px] w-[100px] bottom-7 border p-1 bg-white rounded-lg">
+        <div className="h-auto md:h-[100px] px-5 py-3 flex flex-col md:flex-row gap-3">
+          <div className="relative h-[100px] w-[100px] md:bottom-8 p-1 bg-white rounded-lg">
             <Image
-              src="/dummy-user-image.png"
+              src="/avatar/dummy-user-image.png"
               alt="user-profile"
-              className="w-full h-full"
+              className="w-full h-full object-cover rounded-lg"
               width={100}
               height={100}
             />
           </div>
-          <div className="flex w-full justify-between items-center">
+          <div className="flex flex-col md:flex-row w-full gap-4 justify-between md:items-center">
             <div className="flex flex-col gap-1">
               <Typography
                 variant="h5"
@@ -113,7 +108,7 @@ export default function SingleUser() {
       </div>
 
       {/* Tabs for users */}
-      <Box sx={{ width: "100%", px: 2 }}>
+      <Box sx={{ width: "100%", px: { xs: 0, md: 2 } }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -124,6 +119,7 @@ export default function SingleUser() {
             "& .MuiTabs-indicator": { display: "none" },
             "& .MuiTabs-flexContainer": {
               gap: 3,
+              flexDirection: { xs: "column", sm: "row" },
               "& .MuiTab-root.Mui-selected": {
                 backgroundColor: "#666cff",
                 color: "#fff",

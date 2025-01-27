@@ -1,14 +1,22 @@
-import { Group, Home, Logout, Settings } from "@mui/icons-material";
+import { Group, Home, Logout, Person, Settings, Tv } from "@mui/icons-material";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import GroupsIcon from "@mui/icons-material/Groups";
+import LinkIcon from "@mui/icons-material/Link";
 
 const constant = {
+  // Sidebar items list data
   sidebarItems: [
     { label: "Home", icon: <Home /> },
     { label: "Users", icon: <Group /> },
   ],
+
   sidebarItemsBottom: [
     { label: "Settings", icon: <Settings /> },
     { label: "Log Out", icon: <Logout /> },
   ],
+
+  // static 100 films data
   top100Films: [
     { label: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },
@@ -135,6 +143,87 @@ const constant = {
     { label: "Snatch", year: 2000 },
     { label: "3 Idiots", year: 2009 },
     { label: "Monty Python and the Holy Grail", year: 1975 },
+  ],
+
+  // single user tabs
+  TabWithIcon: [
+    { label: "Profile", icon: <Person /> },
+    { label: "Teams", icon: <GroupsIcon /> },
+    { label: "Projects", icon: <Tv /> },
+    { label: "Connections", icon: <LinkIcon className="-rotate-45" /> },
+  ],
+
+  // Profile Tab connections static data
+  connectionsData: [
+    {
+      avatar: "/avatar/dummy-user-image.png",
+      title: "Cecilia Payne",
+      subText: "45 Connections",
+      icon: <PersonAddIcon />,
+      isConnected: false,
+    },
+    {
+      avatar: "/avatar/user-image-seven-female.png",
+      title: "Curtis Fletcher",
+      subText: "1.32k Connections",
+      icon: <PersonAddIcon />,
+      isConnected: false,
+    },
+    {
+      avatar: "/avatar/user-image-three-female.png",
+      title: "Alice Stone",
+      subText: "125 Connections",
+      icon: <PersonOutlineRoundedIcon />,
+      isConnected: true,
+    },
+    {
+      avatar: "/avatar/user-image-five-male.png",
+      title: "Darrell Barnes",
+      subText: "456 Connections",
+      icon: <PersonOutlineRoundedIcon />,
+      isConnected: false,
+    },
+    {
+      avatar: "/avatar/user-image-six-female.png",
+      title: "Eugenia Moore",
+      subText: "1.2k Connections",
+      icon: <PersonAddIcon />,
+      isConnected: true,
+    },
+  ],
+
+  // Profile Tab teams static data
+  teamsData: [
+    {
+      avatar: "/avatar/react-label.png",
+      title: "React Developers",
+      subText: "72 Members",
+      icon: "Developer",
+    },
+    {
+      avatar: "/avatar/support-label.png",
+      title: "Support Team",
+      subText: "122 Members",
+      icon: "Support",
+    },
+    {
+      avatar: "/avatar/figma-label.png",
+      title: "UI Designers",
+      subText: "7 Members",
+      icon: "Designer",
+    },
+    {
+      avatar: "/avatar/vue-label.png",
+      title: "Vue.js Developers",
+      subText: "289 Members",
+      icon: "Developer",
+    },
+    {
+      avatar: "/avatar/twitter-label.png",
+      title: "Digital Marketing",
+      subText: "24 Members",
+      icon: "Marketing",
+    },
   ],
 };
 

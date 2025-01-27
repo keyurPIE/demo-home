@@ -25,12 +25,15 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
   open?: boolean;
 }>(({ theme }) => ({
   flexGrow: 1,
-  padding: theme.spacing(3),
+  padding: theme.spacing(3), // 24px for medium screens and larger
   transition: theme.transitions.create("margin", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   marginLeft: `-${drawerWidth}px`,
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(1.5), // 12px for medium screens and lower
+  },
   variants: [
     {
       props: ({ open }) => open,

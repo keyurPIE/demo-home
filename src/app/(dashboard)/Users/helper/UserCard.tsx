@@ -32,7 +32,7 @@ export default function UserCard({ setShowUserDetails }: UserCardProps) {
     <div className="flex gap-4 flex-wrap">
       {users.map((item, index) => (
         <div
-          className="flex flex-col border gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:p-4 rounded-xl shadow-lg max-w-sm w-full"
+          className="flex flex-col border gap-2 py-8 md:p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-4 rounded-xl shadow-lg max-w-sm w-full"
           key={index}
         >
           <Image
@@ -47,7 +47,7 @@ export default function UserCard({ setShowUserDetails }: UserCardProps) {
               <p className="text-lg font-semibold text-black">{item.name}</p>
               <p className="font-medium text-gray-500">{item.position}</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 justify-center">
               <button
                 className="text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 rounded-full px-4 py-1 border border-purple-200"
                 onClick={() => setShowUserDetails(true)}
