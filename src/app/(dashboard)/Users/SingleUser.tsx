@@ -52,7 +52,7 @@ export default function SingleUser() {
 
   return (
     <section className="h-full flex flex-col gap-8">
-      <div className="border-2 rounded-lg shadow-lg w-full h-full md:h-80 md:max-h-80">
+      <div className="border-2 rounded-lg shadow-lg w-full md:h-80 md:max-h-80">
         <div className="h-auto md:h-[220px] bg-slate-400 rounded-t-lg">
           <Image
             src="/profile-banner.png"
@@ -72,7 +72,7 @@ export default function SingleUser() {
               height={100}
             />
           </div>
-          <div className="flex flex-col md:flex-row w-full gap-4 justify-between md:items-center">
+          <div className="flex flex-col md:flex-row w-full gap-4 justify-between items-start md:items-center">
             <div className="flex flex-col gap-1">
               <Typography
                 variant="h5"
@@ -81,7 +81,7 @@ export default function SingleUser() {
               >
                 John doe
               </Typography>
-              <div className="flex gap-3">
+              <div className="flex gap-3 flex-col md:flex-row">
                 <span className="flex gap-1 items-center text-[#676b7b]">
                   <LanguageIcon />
                   Front end Developer
@@ -98,6 +98,7 @@ export default function SingleUser() {
             </div>
             <Button
               variant="contained"
+              // className="w-auto"
               sx={{ backgroundColor: "#666cff", borderRadius: 2 }}
               startIcon={<VerifiedUserIcon />}
             >

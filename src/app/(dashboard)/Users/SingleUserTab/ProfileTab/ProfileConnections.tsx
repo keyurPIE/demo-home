@@ -116,6 +116,7 @@ export default function ProfileConnections({
     <Stack gap={2}>
       <Box className="flex items-center justify-between gap-2">
         <Typography sx={{ color: "#666cff" }}>{title}</Typography>
+
         {/* Menu */}
         <div>
           <IconButton

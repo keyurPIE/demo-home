@@ -11,6 +11,7 @@ import { PiChatsCircle } from "react-icons/pi";
 import CheckIcon from "@mui/icons-material/Check";
 import ProfileConnections from "./ProfileTab/ProfileConnections";
 import ProfileActivityTimeline from "./ProfileTab/ProfileActivityTimeline";
+import ProfileProjectList from "./ProfileTab/ProfileProjectList";
 
 const about = [
   {
@@ -179,7 +180,9 @@ export default function UserProfileTab() {
             <ProfileConnections title="Teams" isConnection={false} />
           </div>
         </div>
-        <div className="border p-3 md:p-5 rounded-lg shadow-xl">3</div>
+        <div className="border rounded-lg shadow-xl">
+          <ProfileProjectList title="Activity Timeline" />
+        </div>
       </Stack>
     </Box>
   );

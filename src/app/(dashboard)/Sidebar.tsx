@@ -25,6 +25,8 @@ interface SideBarProps {
   onItemClick: (item: string) => void;
   variant: string;
   anchor: string;
+  // variant?: "persistent" | "temporary"; // "persistent" for desktop, "temporary" for mobile
+  // anchor?: "left" | "right"; // Sidebar can open from left or right
   currentSelection: string;
 }
 
@@ -43,14 +45,18 @@ const Sidebar = ({
   onClose,
   onItemClick,
   currentSelection,
-}: SideBarProps) => {
+}: // variant,
+// anchor,
+SideBarProps) => {
   const theme = useTheme();
 
   return (
     <Drawer
       variant="persistent"
+      // variant={variant}
       open={open}
       anchor="left"
+      // anchor={anchor}
       sx={{
         width: drawerWidth,
         flexShrink: 0,
