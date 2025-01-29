@@ -11,78 +11,101 @@ import { PiChatsCircle } from "react-icons/pi";
 import CheckIcon from "@mui/icons-material/Check";
 import ProfileConnections from "./ProfileTab/ProfileConnections";
 import ProfileActivityTimeline from "./ProfileTab/ProfileActivityTimeline";
-import ProfileProjectList from "./ProfileTab/ProfileProjectList";
+// import ProfileProjectList from "./ProfileTab/ProfileProjectList";
 
-const about = [
-  {
-    label: "Full Name",
-    value: "John Doe",
-    icon: <PersonIcon className="md:mr-2" />,
-  },
-  { label: "Status", value: "Active", icon: <CheckIcon className="md:mr-2" /> },
-  { label: "Role", value: "Developer", icon: <StarIcon className="md:mr-2" /> },
-  {
-    label: "Country",
-    value: "USA",
-    icon: <TourOutlinedIcon className="md:mr-2" />,
-  },
-  {
-    label: "Languages",
-    value: "English",
-    icon: <TranslateOutlinedIcon className="md:mr-2" />,
-  },
-];
+export default function UserProfileTab({ singleUserDetails }) {
+  const { name, role, status, country, language, contact, skype, email } =
+    singleUserDetails;
 
-const contacts = [
-  {
-    label: "Contact",
-    value: "(123) 456-7890",
-    icon: <CallOutlinedIcon />,
-  },
-  {
-    label: "Skype",
-    value: "john.doe",
-    icon: <PiChatsCircle className="w-6 h-6" />,
-  },
-  {
-    label: "Email",
-    value: "john.doe@example.com",
-    icon: <DraftsOutlinedIcon />,
-  },
-];
+  const about = [
+    {
+      label: "Full Name",
+      value: name,
+      default: "John Doe",
+      icon: <PersonIcon className="md:mr-2" />,
+    },
+    {
+      label: "Status",
+      value: status,
+      default: "Active",
+      icon: <CheckIcon className="md:mr-2" />,
+    },
+    {
+      label: "Role",
+      value: role,
+      default: "Developer",
+      icon: <StarIcon className="md:mr-2" />,
+    },
+    {
+      label: "Country",
+      value: country,
+      default: "USA",
+      icon: <TourOutlinedIcon className="md:mr-2" />,
+    },
+    {
+      label: "Languages",
+      value: language,
+      default: "English",
+      icon: <TranslateOutlinedIcon className="md:mr-2" />,
+    },
+  ];
 
-const teams = [
-  {
-    label: "Backend Developer",
-    value: "(126 Members)",
-    icon: <FiGithub className="w-6 h-6" />,
-  },
-  {
-    label: "React Developer",
-    value: "(98 Members)",
-    icon: <FaReact className="w-6 h-6" />,
-  },
-];
+  const contacts = [
+    {
+      label: "Contact",
+      value: contact,
+      default: "(123) 456-7890",
+      icon: <CallOutlinedIcon />,
+    },
+    {
+      label: "Skype",
+      value: skype,
+      default: "john.doe",
+      icon: <PiChatsCircle className="w-6 h-6" />,
+    },
+    {
+      label: "Email",
+      value: email,
+      default: "john.doe@example.com",
+      icon: <DraftsOutlinedIcon />,
+    },
+  ];
 
-const overview = [
-  {
-    label: "Task Compiled",
-    value: "13.5k",
-    icon: <CheckIcon className="md:mr-2" />,
-  },
-  {
-    label: "Projects Compiled",
-    value: "146",
-    icon: <PersonIcon className="md:mr-2" />,
-  },
-  {
-    label: "Connections",
-    value: "897",
-    icon: <StarIcon className="md:mr-2" />,
-  },
-];
+  const teams = [
+    {
+      label: "Backend Developer",
+      value: "(126 Members)",
+      default: "(126 Members)",
+      icon: <FiGithub className="w-6 h-6" />,
+    },
+    {
+      label: "React Developer",
+      value: "(98 Members)",
+      default: "(98 Members)",
+      icon: <FaReact className="w-6 h-6" />,
+    },
+  ];
 
-export default function UserProfileTab() {
+  const overview = [
+    {
+      label: "Task Compiled",
+      value: "13.5k",
+      default: "13.5k",
+      icon: <CheckIcon className="md:mr-2" />,
+    },
+    {
+      label: "Projects Compiled",
+      value: "146",
+      default: "146",
+      icon: <PersonIcon className="md:mr-2" />,
+    },
+    {
+      label: "Connections",
+      value: "897",
+      default: "897",
+      icon: <StarIcon className="md:mr-2" />,
+    },
+  ];
   return (
     <Box className="flex gap-6 w-full flex-col md:flex-row">
       <Stack gap={3} className="w-full md:w-[30%]">
@@ -101,7 +124,7 @@ export default function UserProfileTab() {
                   >
                     {item.icon} {item.label}:
                   </Typography>
-                  {item.value}
+                  {item.value || item.default}
                 </Box>
               ))}
             </Stack>
@@ -180,9 +203,10 @@ export default function UserProfileTab() {
             <ProfileConnections title="Teams" isConnection={false} />
           </div>
         </div>
-        <div className="border rounded-lg shadow-xl">
+        {/* <div className="border p-3 md:p-5 rounded-lg shadow-xl"> */}
+        {/* <div className="border rounded-lg shadow-xl">
           <ProfileProjectList title="Activity Timeline" />
-        </div>
+        </div> */}
       </Stack>
     </Box>
   );

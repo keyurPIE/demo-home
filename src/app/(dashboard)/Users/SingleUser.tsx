@@ -5,12 +5,14 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PropTypes from "prop-types";
 import UserProfileTab from "./SingleUserTab/UserProfileTab";
 import UserTeamsTab from "./SingleUserTab/UserTeamsTab";
 import UserProjectsTab from "./SingleUserTab/UserProjectsTab";
 import UserConnectionsTab from "./SingleUserTab/UserConnectionsTab";
 import constant from "@/app/utils/constant";
+import { allUserProps } from "@/types/singleUserType";
 
 const { TabWithIcon } = constant;
 
@@ -36,17 +38,22 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index: any) {
+function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
-export default function SingleUser() {
+const SingleUser: React.FC<{ singleUserDetails: allUserProps }> = ({
+  singleUserDetails,
+}) => {
   const [value, setValue] = React.useState<number>(0);
 
-  const handleChange = (event: any, newValue: any) => {
+  const { name, profile, position, city, joinDate, isConnectedUser } =
+    singleUserDetails;
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
@@ -65,8 +72,8 @@ export default function SingleUser() {
         <div className="h-auto md:h-[100px] px-5 py-3 flex flex-col md:flex-row gap-3">
           <div className="relative h-[100px] w-[100px] md:bottom-8 p-1 bg-white rounded-lg">
             <Image
-              src="/avatar/dummy-user-image.png"
-              alt="user-profile"
+              src={profile || "/avatar/dummy-user-image.png"}
+              alt={`${name}-user-profile`}
               className="w-full h-full object-cover rounded-lg"
               width={100}
               height={100}
@@ -79,20 +86,20 @@ export default function SingleUser() {
                 fontWeight={600}
                 className="text-[#3B4506]"
               >
-                John doe
+                {name || "John doe"}
               </Typography>
               <div className="flex gap-3 flex-col md:flex-row">
                 <span className="flex gap-1 items-center text-[#676b7b]">
                   <LanguageIcon />
-                  Front end Developer
+                  {position || "Front end Developer"}
                 </span>
                 <span className="flex gap-1 items-center text-[#676b7b]">
                   <LocationOnIcon />
-                  Vatican city
+                  {city || " Vatican city"}
                 </span>
                 <span className="flex gap-1 items-center text-[#676b7b]">
                   <CalendarMonthIcon />
-                  Joined April 2021
+                  {joinDate || "Joined April 2021"}
                 </span>
               </div>
             </div>
@@ -100,9 +107,11 @@ export default function SingleUser() {
               variant="contained"
               // className="w-auto"
               sx={{ backgroundColor: "#666cff", borderRadius: 2 }}
-              startIcon={<VerifiedUserIcon />}
+              startIcon={
+                isConnectedUser ? <VerifiedUserIcon /> : <PersonAddIcon />
+              }
             >
-              connected
+              {isConnectedUser ? "connected" : "connect"}
             </Button>
           </div>
         </div>
@@ -158,7 +167,7 @@ export default function SingleUser() {
       </Box>
       <div>
         <CustomTabPanel value={value} index={0}>
-          <UserProfileTab />
+          <UserProfileTab singleUserDetails={singleUserDetails} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <UserTeamsTab />
@@ -172,4 +181,6 @@ export default function SingleUser() {
       </div>
     </section>
   );
-}
+};
+
+export default SingleUser;

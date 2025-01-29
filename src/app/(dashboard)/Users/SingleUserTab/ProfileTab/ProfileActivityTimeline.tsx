@@ -172,13 +172,14 @@ export default function ProfileActivityTimeline({
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  marginBottom: 1,
                 }}
               >
                 <StepLabel
                   sx={{
                     "& .MuiStepLabel-label": {
                       color: "#3B4056",
-                      fontSize: 15,
+                      fontSize: { xs: 12, md: 15 },
                       fontWeight: 600,
                     },
                   }}
@@ -189,14 +190,21 @@ export default function ProfileActivityTimeline({
                   //     />
                   //   }
                   optional={
-                    <Typography fontWeight={"normal"} sx={{ color: "#676B7B" }}>
+                    <Typography
+                      fontWeight={"normal"}
+                      fontSize={{ xs: 12, md: 16 }}
+                      sx={{ color: "#676B7B" }}
+                    >
                       {step.description}
                     </Typography>
                   }
                 >
                   {step.label}
                 </StepLabel>
-                <Typography fontSize={13} sx={{ color: "#A8AAB4" }}>
+                <Typography
+                  fontSize={{ xs: 10, md: 13 }}
+                  sx={{ color: "#A8AAB4" }}
+                >
                   {step.time}
                 </Typography>
               </Box>

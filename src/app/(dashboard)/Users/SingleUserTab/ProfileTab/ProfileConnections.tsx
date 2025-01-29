@@ -30,7 +30,15 @@ interface profileConnectionsProps {
   isConnection?: boolean;
 }
 
-const { connectionsData, teamsData } = constant;
+const {
+  connectionsData,
+  teamsData,
+  orangeColorCode,
+  purpleColorCode,
+  blueColorCode,
+  greyColorCode,
+  defaultColorCode,
+} = constant;
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -94,19 +102,19 @@ export default function ProfileConnections({
     let chipStyle = { color: "", background: "" };
     switch (iconLower) {
       case "developer":
-        chipStyle = { color: "#FF4D49", background: "#FFE3E2" };
+        chipStyle = orangeColorCode;
         break;
       case "support":
-        chipStyle = { color: "#666CFF", background: "#F7F7FF" };
+        chipStyle = purpleColorCode;
         break;
       case "designer":
-        chipStyle = { color: "#26c6f9", background: "#dcf6fe" };
+        chipStyle = blueColorCode;
         break;
       case "marketing":
-        chipStyle = { color: "#6d788d", background: "#e8e9ed" };
+        chipStyle = greyColorCode;
         break;
       default:
-        chipStyle = { color: "#FFF", background: "#666cff" };
+        chipStyle = defaultColorCode;
         break;
     }
     return chipStyle;

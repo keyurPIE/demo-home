@@ -181,14 +181,14 @@ const constant = {
       title: "Darrell Barnes",
       subText: "456 Connections",
       icon: <PersonOutlineRoundedIcon />,
-      isConnected: false,
+      isConnected: true,
     },
     {
       avatar: "/avatar/user-image-six-female.png",
       title: "Eugenia Moore",
       subText: "1.2k Connections",
       icon: <PersonAddIcon />,
-      isConnected: true,
+      isConnected: false,
     },
   ],
 
@@ -225,6 +225,15 @@ const constant = {
       icon: "Marketing",
     },
   ],
+
+  // color Palates:
+  orangeColorCode: { color: "#FF4D49", background: "#FFE3E2" }, // orange color code
+  purpleColorCode: { color: "#666CFF", background: "#E7E7FF" }, // Purple color code
+  blueColorCode: { color: "#26c6f9", background: "#dcf6fe" }, // Blue color code
+  greyColorCode: { color: "#6d788d", background: "#e8e9ed" }, // grey color code
+  greenColorCode: { color: "#71E128", background: "#E8FADD" }, // green color code
+  mangoColorCode: { color: "#FDB528", background: "#FFF3DD" }, // mango color code
+  defaultColorCode: { color: "#FFF", background: "#666cff" }, // default color code
 };
 
 export default constant;

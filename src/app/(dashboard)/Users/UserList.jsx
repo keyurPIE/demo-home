@@ -1,33 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import AddUser from "./AddUser";
 import SingleUser from "./SingleUser";
 import UserCard from "./helper/UserCard";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import allUserData from "@/data/allUserData.json";
 
 export default function UserList() {
   const [addUser, setAddUser] = useState(false);
   const [showUserDetails, setShowUserDetails] = useState(false);
+  const [singleUserDetails, setSingleUserDetails] = useState({});
+
+  const handleGoBackToMain = () => {
+    setAddUser(false);
+    setShowUserDetails(false);
+  };
+
+  const handleSingleUserDisplay = (isShow, singleUser) => {
+    setShowUserDetails(isShow);
+    setSingleUserDetails(singleUser);
+  };
 
   return (
     <Stack gap={3} width="100%">
-      <Box display="flex" className="justify-between">
+      <Box display="flex" className="justify-between items-center">
         {addUser && (
           <>
             <Typography variant="h5">add new user</Typography>
-            <Button
-              variant="contained"
-              onClick={() => {
-                setAddUser(false);
-                setShowUserDetails(false);
-              }}
-            >
+            <Button variant="contained" onClick={handleGoBackToMain}>
               Back to list
             </Button>
           </>
         )}
         {showUserDetails && (
           <>
-            <Typography variant="h5">current user</Typography>
+            <Typography variant="h5" className="flex gap-5 items-center">
+              <FaArrowLeftLong
+                className="cursor-pointer"
+                onClick={handleGoBackToMain}
+              />
+              current user
+            </Typography>
             <Button
               variant="contained"
               onClick={() => {
@@ -51,9 +64,12 @@ export default function UserList() {
 
       {/* All users */}
       {addUser && <AddUser setAddUser={setAddUser} />}
-      {showUserDetails && <SingleUser />}
+      {showUserDetails && <SingleUser singleUserDetails={singleUserDetails} />}
       {!addUser && !showUserDetails && (
-        <UserCard setShowUserDetails={setShowUserDetails} />
+        <UserCard
+          handleSingleUserDisplay={handleSingleUserDisplay}
+          allUsers={allUserData}
+        />
       )}
     </Stack>
   );

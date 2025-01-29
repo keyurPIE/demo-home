@@ -1,0 +1,119 @@
+[
+  {
+    "title": "React Developer",
+    "banner": "/avatar/react-label.png",
+    "description": "We don’t make assumptions about the rest of your technology stack, so you can develop new features at your own pace.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "React", "colorCode": "purpleColorCode" },
+      { "label": "MUI", "colorCode": "blueColorCode" }
+    ]
+  },
+  {
+    "title": "Vue Developer",
+    "banner": "/avatar/vue-label.png",
+    "description": "The development of Vue and its ecosystem is guided by an international team, some of whom have chosen innovative approaches.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "Vuejs", "colorCode": "greenColorCode" },
+      { "label": "Developer", "colorCode": "orangeColorCode" }
+    ]
+  },
+  {
+    "title": "Creative Designers",
+    "banner": "/avatar/xd-label.png",
+    "description": "A design or product team is more than just the people on it. It includes the roles they play to create innovative products.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "Sketch", "colorCode": "mangoColorCode" },
+      { "label": "XD", "colorCode": "orangeColorCode" }
+    ]
+  },
+  {
+    "title": "Support Team",
+    "banner": "/avatar/support-label.png",
+    "description": "Support your team. Your customer support team is fielding the good, the bad, and the ugly day in and day out.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [{ "label": "Zendesk", "colorCode": "blueColorCode" }]
+  },
+  {
+    "title": "Digital Marketing",
+    "banner": "/avatar/social-label.png",
+    "description": "Digital marketing refers to advertising delivered through digital channels such as search engines, websites, and social media.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "Twitter", "colorCode": "purpleColorCode" },
+      { "label": "Email", "colorCode": "greenColorCode" }
+    ]
+  },
+  {
+    "title": "Event Team",
+    "banner": "/avatar/event-label.png",
+    "description": "An event is defined as a particular contest which is part of a program of contests. An example of an event could be a hackathon.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [{ "label": "Hubilo", "colorCode": "greenColorCode" }]
+  },
+  {
+    "title": "UI/UX Figma",
+    "banner": "/avatar/figma-label.png",
+    "description": "Explore, install, use, and remix thousands of plugins and files published to the Figma Community by designers.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "UI/UX", "colorCode": "greenColorCode" },
+      { "label": "Figma", "colorCode": "greyColorCode" }
+    ]
+  },
+  {
+    "title": "Native Mobile App",
+    "banner": "/avatar/react-label.png",
+    "description": "React Native lets you create truly native apps and doesn't compromise your users' experiences on either iOS or Android.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [{ "label": "React", "colorCode": "purpleColorCode" }]
+  },
+  {
+    "title": "Beginners",
+    "banner": "/avatar/html-label.png",
+    "description": "Learn the basics of how websites work, front-end vs back-end, and how to use a code editor to get started with web development.",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "tags": [
+      { "label": "CSS", "colorCode": "blueColorCode" },
+      { "label": "HTML", "colorCode": "mangoColorCode" }
+    ]
+  }
+]
