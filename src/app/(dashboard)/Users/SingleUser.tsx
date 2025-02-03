@@ -154,6 +154,7 @@ const SingleUser: React.FC<{ singleUserDetails: allUserProps }> = ({
           {TabWithIcon.map((item, index) => (
             <Tab
               key={item.label}
+              className="hover:bg-[#e7e7ff] hover:text-[#666cff] transition-all"
               label={
                 <Box className="flex items-center gap-2">
                   {item.icon}

@@ -1,0 +1,128 @@
+[
+  {
+    "title": "Social Banners",
+    "clientName": "Christian Jimenez",
+    "banner": "/avatar/social-label.png",
+    "description": "We are Consulting, Software Development and Web Development Services.",
+    "outOfTotalBudget": "$18.2k",
+    "totalBudget": "$24.8k",
+    "startDate": "14/2/21",
+    "deadline": "28/2/22",
+    "allHours": "380/244",
+    "tags": { "label": "Developer", "colorCode": "orangeColorCode" },
+    "tasks": "290/344",
+    "completed": "90",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "290 members",
+    "messages": "15"
+  },
+  {
+    "title": "Admin Template",
+    "clientName": "Jeffrey Phillips",
+    "banner": "/avatar/react-label.png",
+    "description": "Time is our most valuable asset, that's why we want to help you save it by creating…",
+    "outOfTotalBudget": "$1.8k",
+    "totalBudget": "$2.4k",
+    "startDate": "18/8/21",
+    "deadline": "21/6/22",
+    "allHours": "98/135",
+    "tags": { "label": "15 Days left", "colorCode": "mangoColorCode" },
+    "tasks": "12/90",
+    "completed": "42",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "1.1k members",
+    "messages": "236"
+  },
+  {
+    "title": "App Design",
+    "clientName": "Ricky McDonald",
+    "banner": "/avatar/vue-label.png",
+    "description": "App design combines the user interface (UI) and user experience (UX).",
+    "outOfTotalBudget": "$420",
+    "totalBudget": "$980",
+    "startDate": "24/7/21",
+    "deadline": "8/10/21",
+    "allHours": "880/421",
+    "tags": { "label": "Developer", "colorCode": "orangeColorCode" },
+    "tasks": "22/140",
+    "completed": "68",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "458 members",
+    "messages": "98"
+  },
+  {
+    "title": "Create Website",
+    "clientName": "Hulda Wright",
+    "banner": "/avatar/html-label.png",
+    "description": "Your domain name should reflect your products or services so that your...",
+    "outOfTotalBudget": "$2.43k",
+    "totalBudget": "$8.5k",
+    "startDate": "10/2/19",
+    "deadline": "12/9/22",
+    "allHours": "1.2k/820",
+    "tags": { "label": "Developer", "colorCode": "orangeColorCode" },
+    "tasks": "237/420",
+    "completed": "72",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "137 members",
+    "messages": "120"
+  },
+  {
+    "title": "Figma Dashboard",
+    "clientName": "Jerry Greene",
+    "banner": "/avatar/figma-label.png",
+    "description": "Use this template to organize your design project. Some of the key features are…",
+    "outOfTotalBudget": "$28.4k",
+    "totalBudget": "$52.7k",
+    "startDate": "12/12/20",
+    "deadline": "25/12/21",
+    "allHours": "142/420",
+    "tags": { "label": "15 Days left", "colorCode": "mangoColorCode" },
+    "tasks": "29/285",
+    "completed": "35",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "82 members",
+    "messages": "20"
+  },
+  {
+    "title": "Logo Design",
+    "clientName": "Olive Strickland",
+    "banner": "/avatar/xd-label.png",
+    "description": "Premium logo designs created by top logo designers. Create the branding of business.",
+    "outOfTotalBudget": "$655",
+    "totalBudget": "$1.3k",
+    "startDate": "17/8/21",
+    "deadline": "02/11/21",
+    "allHours": "580/445",
+    "tags": { "label": "Developer", "colorCode": "orangeColorCode" },
+    "tasks": "290/290",
+    "completed": "100",
+    "avatars": [
+      "/avatar/user-image-seven-female.png",
+      "/avatar/user-image-five-male.png",
+      "/avatar/user-image-three-female.png"
+    ],
+    "members": "16 members",
+    "messages": "16"
+  }
+]

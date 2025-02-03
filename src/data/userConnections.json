@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Mark Gilbert",
+    "position": "UI Designer",
+    "banner": "/avatar/dummy-user-image.png",
+    "project": "18",
+    "tasks": "834",
+    "connections": "129",
+    "tags": [
+      { "label": "Figma", "colorCode": "greyColorCode" },
+      { "label": "Sketch", "colorCode": "mangoColorCode" }
+    ],
+    "isConnected": true
+  },
+  {
+    "title": "Eugenia Parsons",
+    "position": "Developer",
+    "banner": "/avatar/user-image-three-female.png",
+    "project": "112",
+    "tasks": "23.1k",
+    "connections": "1.28k",
+    "tags": [
+      { "label": "Angular", "colorCode": "orangeColorCode" },
+      { "label": "React", "colorCode": "blueColorCode" }
+    ],
+    "isConnected": false
+  },
+  {
+    "title": "Francis Byrd",
+    "position": "Developer",
+    "banner": "/avatar/user-image-five-male.png",
+    "project": "32",
+    "tasks": "1.25k",
+    "connections": "890",
+    "tags": [
+      { "label": "React", "colorCode": "blueColorCode" },
+      { "label": "HTML", "colorCode": "purpleColorCode" }
+    ],
+    "isConnected": true
+  },
+  {
+    "title": "Leon Lucas",
+    "position": "UI/UX Designer",
+    "banner": "/avatar/user-image-seven-female.png",
+    "project": "86",
+    "tasks": "12.4k",
+    "connections": "890",
+    "tags": [
+      { "label": "Figma", "colorCode": "greyColorCode" },
+      { "label": "Sketch", "colorCode": "mangoColorCode" },
+      { "label": "Photoshop", "colorCode": "purpleColorCode" }
+    ],
+    "isConnected": false
+  },
+  {
+    "title": "Jayden Rogers",
+    "position": "Full Stack Developer",
+    "banner": "/avatar/user-image-eight-male.png",
+    "project": "244",
+    "tasks": "23.8k",
+    "connections": "2.14k",
+    "tags": [
+      { "label": "React", "colorCode": "blueColorCode" },
+      { "label": "Angular", "colorCode": "orangeColorCode" },
+      { "label": "HTML", "colorCode": "purpleColorCode" }
+    ],
+    "isConnected": true
+  },
+  {
+    "title": "Jeanette Powell",
+    "position": "SEO",
+    "banner": "/avatar/user-image-six-female.png",
+    "project": "32",
+    "tasks": "1.28k",
+    "connections": "1.27k",
+    "tags": [
+      { "label": "Writing", "colorCode": "greenColorCode" },
+      { "label": "Anyalysis", "colorCode": "greyColorCode" }
+    ],
+    "isConnected": false
+  }
+]
