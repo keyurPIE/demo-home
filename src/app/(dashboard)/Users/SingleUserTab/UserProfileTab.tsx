@@ -13,7 +13,7 @@ import ProfileConnections from "./ProfileTab/ProfileConnections";
 import ProfileActivityTimeline from "./ProfileTab/ProfileActivityTimeline";
 // import ProfileProjectList from "./ProfileTab/ProfileProjectList";
 
-export default function UserProfileTab({ singleUserDetails }) {
+export default function UserProfileTab({ singleUserDetails }: any) {
   const { name, role, status, country, language, contact, skype, email } =
     singleUserDetails;
 

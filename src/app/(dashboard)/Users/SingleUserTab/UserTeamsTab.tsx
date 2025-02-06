@@ -1,5 +1,4 @@
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   Avatar,
   AvatarGroup,
@@ -11,6 +10,7 @@ import {
 } from "@mui/material";
 import constant from "@/app/utils/constant";
 import teamData from "@/data/userTeamsData.json";
+import DropdownMenu from "@/app/component/Dropdown";
 
 const {
   orangeColorCode,
@@ -61,7 +61,9 @@ const TeamCard: React.FC<TeamCardProps> = ({
       </div>
       <div className="flex gap-2 items-center">
         <StarBorderIcon />
-        <MoreVertIcon />
+
+        {/* Menu */}
+        <DropdownMenu />
       </div>
     </Box>
     <Typography sx={{ color: "#676b7b", fontSize: { xs: 12, md: 14 } }}>

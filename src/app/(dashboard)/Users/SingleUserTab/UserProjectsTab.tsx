@@ -12,10 +12,10 @@ import {
   Typography,
 } from "@mui/material";
 // import StarBorderIcon from "@mui/icons-material/StarBorder";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import projectData from "@/data/userProjectData.json";
 import constant from "@/app/utils/constant";
 import { RiWechatLine } from "react-icons/ri";
+import DropdownMenu from "@/app/component/Dropdown";
 
 const {
   orangeColorCode,
@@ -134,7 +134,9 @@ const TeamCard: React.FC<TeamCardProps> = ({
               </Typography>
             </Box>
           </div>
-          <MoreVertIcon />
+
+          {/* Menu */}
+          <DropdownMenu />
         </Box>
 
         <div className="flex gap-2 justify-between items-center">

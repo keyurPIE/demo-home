@@ -10,6 +10,14 @@ export default function UserList() {
   const [addUser, setAddUser] = useState(false);
   const [showUserDetails, setShowUserDetails] = useState(false);
   const [singleUserDetails, setSingleUserDetails] = useState({});
+  // const [users, setUsers] = useState([]);
+
+  // useEffect(() => {
+  //   // Get users from localStorage
+  //   const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+  //   console.log("✌️storedUsers --->", storedUsers);
+  //   setUsers({ ...allUserData, storedUsers });
+  // }, []);
 
   const handleGoBackToMain = () => {
     setAddUser(false);

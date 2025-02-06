@@ -7,11 +7,11 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import projectData from "@/data/userConnections.json";
 import { RiMailOpenLine, RiUserFollowLine } from "react-icons/ri";
 import { RiUserAddLine } from "react-icons/ri";
 import constant from "@/app/utils/constant";
+import DropdownMenu from "@/app/component/Dropdown";
 
 const {
   orangeColorCode,
@@ -70,7 +70,11 @@ const TeamCard: React.FC<TeamCardProps> = ({
         {position}
       </Typography>
     </Box>
-    <MoreVertIcon className="absolute top-5 right-5" />
+
+    {/* Menu */}
+    <div className="absolute top-6 right-6">
+      <DropdownMenu />
+    </div>
 
     <Box className="flex items-center justify-between gap-3 text-xs md:text-sm">
       {tags.map((tag, index) => {
@@ -149,7 +153,17 @@ const TeamCard: React.FC<TeamCardProps> = ({
       >
         {isConnected ? "Connected" : "Connect"}
       </Button>
-      <RiMailOpenLine className="w-8 h-8 border p-1 rounded-lg border-[#6d788d]" />
+
+      <Button
+        sx={{
+          border: "1px solid #6d788d",
+          p: 0.5,
+          minWidth: 0,
+          borderRadius: 2,
+        }}
+      >
+        <RiMailOpenLine className="w-6 h-6" />
+      </Button>
     </Stack>
   </Stack>
 );
