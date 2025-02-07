@@ -29,7 +29,8 @@ interface FormValues {
   // uploads: File[]; // Array of File objects
   name: string;
   position: string;
-  profile: string; // URL for the profile image
+  // profile: string; // URL for the profile image
+  profile: File | string | null; // URL for the profile image
   country: string;
   city: string;
   language: string;
@@ -45,6 +46,7 @@ interface FormValues {
 
 interface AddUserProps {
   setAddUser: (value?: boolean) => void;
+  addUserToList: (newUser: FormValues) => void;
 }
 
 // Validations for Form field
@@ -76,7 +78,7 @@ const validationSchema = yup.object({
 
   name: yup.string().required("Name is required"),
   position: yup.string().required("Position is required"),
-  profile: yup.string().required("Profile image is required"),
+  profile: yup.mixed().required("Profile image is required"),
   country: yup.string().required("Country is required"),
   city: yup.string().required("City is required"),
   language: yup.string().required("Language is required"),
@@ -114,8 +116,12 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
-export default function AddUser({ setAddUser }: AddUserProps) {
+export default function AddUser({ setAddUser, addUserToList }: AddUserProps) {
   const [filePreviews, setFilePreviews] = useState<string[]>([]);
+  // const [profilePreview, setProfilePreview] = useState<string | null>(null);
+  const [profileImagePreview, setProfileImagePreview] = useState<string | null>(
+    null
+  );
 
   const formik = useFormik<FormValues>({
     initialValues: {
@@ -127,7 +133,8 @@ export default function AddUser({ setAddUser }: AddUserProps) {
       // uploads: [],
       name: "",
       position: "",
-      profile: "",
+      // profile: "",
+      profile: null,
       country: "",
       city: "",
       language: "",
@@ -143,8 +150,8 @@ export default function AddUser({ setAddUser }: AddUserProps) {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       setAddUser(false);
-      console.log(JSON.stringify(values, null, 2));
-      // localStorage.setItem("users", JSON.stringify(values));
+      console.log("Form values submitted: ", JSON.stringify(values, null, 2));
+      addUserToList(values);
       console.log("Uploaded files***", values.uploads);
     },
   });
@@ -174,8 +181,6 @@ export default function AddUser({ setAddUser }: AddUserProps) {
         URL.createObjectURL(file)
       );
       setFilePreviews((prev) => [...prev, ...fileURLs]);
-
-      // Set the files in Formik's `uploads` field
       setFieldValue("uploads", [...values.uploads, ...files]);
     }
   };
@@ -188,6 +193,35 @@ export default function AddUser({ setAddUser }: AddUserProps) {
     setFilePreviews(newPreviews);
     setFieldValue("uploads", newFiles);
   };
+
+  // const handleProfileChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files ? event.target.files[0] : null;
+  //   if (file) {
+  //     setProfilePreview(URL.createObjectURL(file)); // Set the profile image preview
+  //     setFieldValue("profile", file); // Store the file in Formik
+  //   }
+  // };
+
+  // const handleRemoveProfileImage = () => {
+  //   setProfileImagePreview(null);
+  //   setFieldValue("profile", "");
+  // };
+
+  const handleProfileImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const fileURL = URL.createObjectURL(file);
+      setProfileImagePreview(fileURL);
+      setFieldValue("profile", fileURL); // Save the profile image URL
+      // setFieldValue("profile", file); // Save the profile image URL
+    }
+  };
+
+  const handleRemoveProfileImage = () => {
+    setProfileImagePreview(null);
+    setFieldValue("profile", null);
+  };
+
   return (
     <Stack gap={3} width="100%">
       <Box>
@@ -376,7 +410,7 @@ export default function AddUser({ setAddUser }: AddUserProps) {
             error={touched.position && Boolean(errors.position)}
             helperText={touched.position && errors.position}
           />
-          <TextField
+          {/* <TextField
             fullWidth
             id="profile"
             name="profile"
@@ -387,7 +421,49 @@ export default function AddUser({ setAddUser }: AddUserProps) {
             onBlur={handleBlur}
             error={touched.profile && Boolean(errors.profile)}
             helperText={touched.profile && errors.profile}
-          />
+          /> */}
+
+          {/* Profile Image Upload */}
+          <Box>
+            <Typography variant="h6">Profile Image</Typography>
+            {profileImagePreview ? (
+              <Box sx={{ position: "relative", width: 100, height: 100 }}>
+                <Image
+                  src={profileImagePreview}
+                  alt="Profile Image"
+                  width={100}
+                  height={100}
+                  style={{ objectFit: "cover" }}
+                />
+                <IconButton
+                  onClick={handleRemoveProfileImage}
+                  sx={{
+                    position: "absolute",
+                    top: 2,
+                    right: 2,
+                    backgroundColor: "white",
+                    padding: 0,
+                    ":hover": { backgroundColor: "#fff" },
+                  }}
+                >
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            ) : (
+              <Button
+                component="label"
+                variant="contained"
+                startIcon={<CloudUploadIcon />}
+              >
+                Upload Profile Image
+                <VisuallyHiddenInput
+                  type="file"
+                  onChange={handleProfileImageChange}
+                />
+              </Button>
+            )}
+          </Box>
+
           <TextField
             fullWidth
             id="country"
@@ -554,6 +630,7 @@ export default function AddUser({ setAddUser }: AddUserProps) {
                         right: 2,
                         backgroundColor: "white",
                         padding: 0,
+                        ":hover": { backgroundColor: "#fff" },
                       }}
                     >
                       <CloseIcon fontSize="small" />

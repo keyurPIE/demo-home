@@ -1,9 +1,11 @@
 import { allUserProps } from "@/types/singleUserType";
 import Image from "next/image";
+import { BiTrash } from "react-icons/bi";
 
 interface UserCardProps {
   // setShowUserDetails: (value?: boolean) => void;
   handleSingleUserDisplay: (value: boolean, item: allUserProps) => void;
+  handleUserDelete: (user: allUserProps) => void;
   allUsers: allUserProps[];
 }
 
@@ -33,9 +35,10 @@ interface UserCardProps {
 export default function UserCard({
   // setShowUserDetails,
   handleSingleUserDisplay,
+  handleUserDelete,
   allUsers,
 }: UserCardProps) {
-  // console.log("allUsers**", allUsers);
+  console.log("allUsers**", allUsers);
   return (
     <div className="flex gap-4 flex-wrap">
       {/* {users.map((item, index) => ( */}
@@ -46,7 +49,7 @@ export default function UserCard({
         >
           <Image
             className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
-            src={item.profile}
+            src={item.profile || "/user-image-two.png"}
             alt=""
             width={96}
             height={96}
@@ -66,6 +69,12 @@ export default function UserCard({
               </button>
               <button className="text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 rounded-full px-4 py-1 border border-purple-200">
                 Message
+              </button>
+              <button
+                className="text-red-600 hover:border-transparent hover:bg-red-600 hover:text-white active:bg-red-700 rounded-full p-2 border border-red-200"
+                onClick={() => handleUserDelete(item)} // Call the handleDelete function on click
+              >
+                <BiTrash className="h-5 w-5" /> {/* Trash Icon */}
               </button>
             </div>
           </div>

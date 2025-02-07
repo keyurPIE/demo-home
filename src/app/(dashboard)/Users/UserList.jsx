@@ -10,14 +10,21 @@ export default function UserList() {
   const [addUser, setAddUser] = useState(false);
   const [showUserDetails, setShowUserDetails] = useState(false);
   const [singleUserDetails, setSingleUserDetails] = useState({});
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  // useEffect(() => {
-  //   // Get users from localStorage
-  //   const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-  //   console.log("✌️storedUsers --->", storedUsers);
-  //   setUsers({ ...allUserData, storedUsers });
-  // }, []);
+  // Load users from localStorage on initial load
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const combinedUsers = [...allUserData, ...storedUsers];
+    setUsers(combinedUsers);
+  }, []);
+
+  // Add the new user to the state
+  const addUserToList = (newUser) => {
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  };
 
   const handleGoBackToMain = () => {
     setAddUser(false);
@@ -27,6 +34,12 @@ export default function UserList() {
   const handleSingleUserDisplay = (isShow, singleUser) => {
     setShowUserDetails(isShow);
     setSingleUserDetails(singleUser);
+  };
+
+  const handleUserDelete = (userToDelete) => {
+    const updatedUsers = users.filter((user) => user !== userToDelete);
+    setUsers(updatedUsers); // Remove user from the list
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
   };
 
   return (
@@ -71,12 +84,17 @@ export default function UserList() {
       </Box>
 
       {/* All users */}
-      {addUser && <AddUser setAddUser={setAddUser} />}
+      {addUser && (
+        <AddUser setAddUser={setAddUser} addUserToList={addUserToList} />
+      )}
+      {/* {addUser && <AddUser handleAddUser={handleAddUser} />} */}
       {showUserDetails && <SingleUser singleUserDetails={singleUserDetails} />}
       {!addUser && !showUserDetails && (
         <UserCard
           handleSingleUserDisplay={handleSingleUserDisplay}
-          allUsers={allUserData}
+          // allUsers={allUserData}
+          handleUserDelete={handleUserDelete}
+          allUsers={users}
         />
       )}
     </Stack>
