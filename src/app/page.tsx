@@ -1,6 +1,6 @@
 "use client";
 import { Box } from "@mui/material";
-import Dashboard from "./(dashboard)/page";
+import Dashboard from "./(dashboard)/dashboard/page";
 import { Oval } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 

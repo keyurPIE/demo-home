@@ -1,3 +1,4 @@
+"use client";
 import { ChangeEvent, useState } from "react";
 // import constant from "@/app/utils/constant";
 import {

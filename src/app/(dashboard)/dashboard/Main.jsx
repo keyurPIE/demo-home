@@ -1,13 +1,15 @@
+"use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import UserList from "./Users/UserList";
+import DashboardHome from "./Home/page";
 
 export default function MainContainer({ value }) {
   const renderContent = () => {
     switch (value) {
       case "Home":
-        return <Typography variant="h6">Home Content</Typography>;
+        return <DashboardHome />;
       case "Users":
         return <UserList />;
       case "Log Out":

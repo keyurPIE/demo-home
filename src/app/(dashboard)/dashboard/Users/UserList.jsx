@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import AddUser from "./AddUser";
@@ -12,12 +13,13 @@ export default function UserList() {
   const [singleUserDetails, setSingleUserDetails] = useState({});
   const [users, setUsers] = useState([]);
 
-  // Load users from localStorage on initial load
-  useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const combinedUsers = [...allUserData, ...storedUsers];
-    setUsers(combinedUsers);
-  }, []);
+  // // Load users from localStorage on initial load
+  // useEffect(() => {
+  //   const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+  //   console.log("✌️storedUsers --->", storedUsers);
+  //   const combinedUsers = [...allUserData, ...storedUsers];
+  //   setUsers(combinedUsers);
+  // }, []);
 
   // Add the new user to the state
   const addUserToList = (newUser) => {
@@ -36,11 +38,11 @@ export default function UserList() {
     setSingleUserDetails(singleUser);
   };
 
-  const handleUserDelete = (userToDelete) => {
-    const updatedUsers = users.filter((user) => user !== userToDelete);
-    setUsers(updatedUsers); // Remove user from the list
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-  };
+  // const handleUserDelete = (userToDelete) => {
+  //   const updatedUsers = users.filter((user) => user !== userToDelete);
+  //   setUsers(updatedUsers); // Remove user from the list
+  //   localStorage.setItem("users", JSON.stringify(updatedUsers));
+  // };
 
   return (
     <Stack gap={3} width="100%">
@@ -92,9 +94,9 @@ export default function UserList() {
       {!addUser && !showUserDetails && (
         <UserCard
           handleSingleUserDisplay={handleSingleUserDisplay}
-          // allUsers={allUserData}
-          handleUserDelete={handleUserDelete}
-          allUsers={users}
+          // handleUserDelete={handleUserDelete}
+          // allUsers={users}
+          allUsers={allUserData}
         />
       )}
     </Stack>

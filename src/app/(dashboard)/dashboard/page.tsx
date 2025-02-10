@@ -17,6 +17,7 @@ import { useMediaQuery } from "@mui/material";
 import MainContainer from "./Main";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
+import withAuth from "@/lib/withAuth";
 const Sidebar = dynamic(() => import("./Sidebar"), { ssr: false });
 
 const drawerWidth = 260;
@@ -95,7 +96,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "space-around",
 }));
 
-export default function Dashboard() {
+const Dashboard = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const [currentUrl, setCurrentUrl] = React.useState("Home");
@@ -175,4 +176,7 @@ export default function Dashboard() {
       </Box>
     </ThemeProvider>
   );
-}
+};
+
+export default withAuth(Dashboard);
+// export default Dashboard;

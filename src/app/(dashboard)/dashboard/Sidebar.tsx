@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Drawer,
@@ -15,7 +16,7 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
 } from "@mui/icons-material";
-import constant from "../utils/constant";
+import constant from "@/app/utils/constant";
 
 const drawerWidth = 260;
 
