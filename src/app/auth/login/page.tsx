@@ -44,7 +44,7 @@ export default function Page() {
     const { email, password } = values;
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/dashboard"); // Redirect to dashboard after successful login
+      router.push("/"); // Redirect to dashboard after successful login
     } catch (error) {
       console.log("✌️error --->", error);
       setError("Invalid email or password. Please try again.");
@@ -54,7 +54,7 @@ export default function Page() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push("/dashboard"); // Redirect after Google sign-in
+      router.push("/");
     } catch (error) {
       console.log("✌️error --->", error);
       setError("Google sign-in failed. Please try again.");

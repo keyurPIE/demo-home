@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import UserList from "./Users/UserList";
 import DashboardHome from "./Home/page";
+import LogOut from "@/app/auth/logout";
 
 export default function MainContainer({ value }) {
   const renderContent = () => {
@@ -13,7 +14,7 @@ export default function MainContainer({ value }) {
       case "Users":
         return <UserList />;
       case "Log Out":
-        return <Typography variant="h6">Log Out Content</Typography>;
+        return <LogOut />;
       case "Settings":
         return <Typography variant="h6">Settings Content</Typography>;
       default:

@@ -106,6 +106,7 @@ export default function UserProfileTab({ singleUserDetails }: any) {
       icon: <StarIcon className="md:mr-2" />,
     },
   ];
+
   return (
     <Box className="flex gap-6 w-full flex-col md:flex-row">
       <Stack gap={3} className="w-full md:w-[30%]">

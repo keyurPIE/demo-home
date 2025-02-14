@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword, auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
-import { Button, Divider, TextField, Typography } from "@mui/material";
+import { Alert, Button, Divider, TextField, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
     .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(8, "Password must be at least 8 characters")
     .required("Password is required"),
 });
 
@@ -43,10 +43,14 @@ export default function Page() {
     email: string;
     password: string;
   }) => {
-    const { email, password } = values;
+    const { email, password, name } = values;
+    console.log("✌️email, password, name --->", email, password, name);
+    if (!email || !password || !name) {
+      setError("All fields are required");
+    }
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      router.push("/dashboard"); // Redirect to dashboard after successful sign-up
+      router.push("/"); // Redirect to dashboard after successful sign-up
     } catch (error) {
       console.log("✌️error --->", error);
       setError("Error occurred during sign-up. Please try again.");
@@ -124,9 +128,9 @@ export default function Page() {
 
         {/* Error Message for Form Submission */}
         {error && (
-          <Typography color="error" variant="body2" align="center">
+          <Alert severity="error" className="mt-3">
             {error}
-          </Typography>
+          </Alert>
         )}
       </div>
     </div>

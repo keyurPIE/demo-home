@@ -1,55 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
 import { auth } from "@/lib/firebase"; // Import the Firebase auth
-import { signInWithEmailAndPassword, signOut, User } from "firebase/auth";
+import { User } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function DashboardHome() {
-  const [user, setUser] = useState<User | null>(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [user, setUser] = useState<User | null>(null);
+  // const router = useRouter();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(setUser);
-    return () => unsubscribe();
-  }, []);
-
-  const handleSignIn = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error("Error signing in: ", error);
-    }
-  };
-
-  const handleSignOut = () => {
-    signOut(auth);
-  };
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(setUser);
+  //   return () => unsubscribe();
+  // }, []);
 
   return (
     <div>
       <h1>Welcome to Next.js with Firebase!</h1>
-      {user ? (
-        <>
-          <p>Logged in as {user.email}</p>
-          <button onClick={handleSignOut}>Sign Out</button>
-        </>
-      ) : (
-        <div>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <button onClick={handleSignIn}>Sign In</button>
-        </div>
-      )}
+      {/* {user ? <p>Logged in as {user.email}</p> : router.push("/auth/login")} */}
     </div>
   );
 }

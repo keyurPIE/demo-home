@@ -14,7 +14,6 @@ const withAuth = (WrappedComponent: React.ComponentType<any>) => {
         setUser(user);
         if (!user) router.push("/auth/login"); // Redirect to sign-in page if not logged in
       });
-      console.log("not loggin....");
 
       // Clean up the subscription on unmount
       return () => unsubscribe();
