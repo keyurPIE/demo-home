@@ -167,6 +167,37 @@ export default function AddUser({ setAddUser, addUserToList }: AddUserProps) {
     handleSubmit,
   }: FormikProps<FormValues> = formik;
 
+  // const onSubmit = async (values: FormValues) => {
+  //   try {
+  //     // Add the user data to the Firestore "users" collection
+  //     const docRef = await addDoc(collection(db, "users"), {
+  //       name: values.name,
+  //       position: values.position,
+  //       profile: values.profile, // Save the profile image URL (or file if you're uploading it)
+  //       country: values.country,
+  //       city: values.city,
+  //       language: values.language,
+  //       contact: values.contact,
+  //       skype: values.skype,
+  //       email: values.email,
+  //       joinDate: values.joinDate,
+  //       status: values.status,
+  //       role: values.role,
+  //       isConnectedUser: values.isConnectedUser,
+  //       uploads: values.uploads.map(file => file.name), // Save only file names or URLs
+  //     });
+
+  //     console.log("User added to Firestore with ID: ", docRef.id);
+  //     // Optionally, you can display a success message or handle success here
+
+  //     setAddUser(false);
+  //     addUserToList(values); // Optionally keep the user list updated in your app
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //     // Optionally handle the error, such as showing an error message to the user
+  //   }
+  // };
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     // const file = event.target.files[0];
     // if (file) {

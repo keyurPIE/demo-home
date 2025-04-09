@@ -44,6 +44,49 @@ export default function UserList() {
   //   localStorage.setItem("users", JSON.stringify(updatedUsers));
   // };
 
+  // import { useEffect, useState } from 'react';
+  // import { db, collection, getDocs } from './firebase'; // Firebase imports
+
+  // const UserList = () => {
+  //   const [users, setUsers] = useState<any[]>([]); // Store fetched users
+  //   const [loading, setLoading] = useState(true); // Loading state
+
+  //   useEffect(() => {
+  //     const fetchUsers = async () => {
+  //       try {
+  //         const querySnapshot = await getDocs(collection(db, 'users')); // Get all users from Firestore
+  //         const usersData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  //         setUsers(usersData); // Set fetched users to state
+  //       } catch (error) {
+  //         console.error('Error fetching users:', error);
+  //       } finally {
+  //         setLoading(false); // Set loading to false after fetching data
+  //       }
+  //     };
+
+  //     fetchUsers();
+  //   }, []); // Empty dependency array means this will run once on mount
+
+  //   if (loading) {
+  //     return <div>Loading...</div>; // You can replace with a loading spinner
+  //   }
+
+  //   return (
+  //     <div>
+  //       <h2>Users List</h2>
+  //       <ul>
+  //         {users.map((user) => (
+  //           <li key={user.id}>
+  //             {user.name} - {user.position}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // };
+
+  // export default UserList;
+
   return (
     <Stack gap={3} width="100%">
       <Box display="flex" className="justify-between items-center">
