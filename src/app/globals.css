@@ -4,13 +4,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #a684ff;
+  --text-hover: #7f22fe;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1f2937;
+    --foreground: #a684ff;
+    --text-hover: #7f22fe;
   }
 }
 

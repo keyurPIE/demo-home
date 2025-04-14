@@ -8,7 +8,7 @@ import {
   googleProvider,
 } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
-import { Button, Divider, TextField, Typography } from "@mui/material";
+import { Button, Divider, Stack, TextField, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
@@ -62,90 +62,209 @@ export default function Page() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="border p-6 max-w-md w-full bg-white shadow-md rounded-lg">
-        <Typography fontWeight={600} fontSize={18} mb={2} align="center">
-          Welcome back!
-        </Typography>
+    // <div className="flex justify-center items-center h-screen">
+    //   <div className="border p-6 max-w-md w-full shadow-md rounded-lg bg-white">
+    //     <Typography
+    //       fontWeight={600}
+    //       fontSize={18}
+    //       mb={2}
+    //       align="center"
+    //       className="text-black"
+    //     >
+    //       Welcome back!
+    //     </Typography>
 
-        {/* Formik Form with Validation */}
+    //     {/* Formik Form with Validation */}
+    //     <Formik
+    //       initialValues={{ email: "", password: "" }}
+    //       validationSchema={validationSchema}
+    //       onSubmit={handleSubmit}
+    //       className="border flex flex-col gap-3"
+    //     >
+    //       {({ errors, touched }) => (
+    //         <Form className="flex flex-col gap-4">
+    //           {/* Email Input */}
+    //           <Field
+    //             name="email"
+    //             as={TextField}
+    //             label="Email"
+    //             placeholder="abc@example.com"
+    //             variant="outlined"
+    //             fullWidth
+    //             error={touched.email && Boolean(errors.email)}
+    //             helperText={touched.email && errors.email}
+    //           />
+    //           {/* Password Input */}
+    //           <Field
+    //             name="password"
+    //             as={TextField}
+    //             label="Password"
+    //             placeholder="*******"
+    //             type="password"
+    //             variant="outlined"
+    //             fullWidth
+    //             error={touched.password && Boolean(errors.password)}
+    //             helperText={touched.password && errors.password}
+    //           />
+
+    //           {/* Reset password */}
+    //           <Link
+    //             href="/forgot-password"
+    //             className="text-right underline text-black"
+    //           >
+    //             Forgot Password
+    //           </Link>
+
+    //           {/* Submit Button */}
+    //           <Button
+    //             type="submit"
+    //             variant="contained"
+    //             color="primary"
+    //             fullWidth
+    //             sx={{ padding: "10px" }}
+    //           >
+    //             Sign In
+    //           </Button>
+    //         </Form>
+    //       )}
+    //     </Formik>
+
+    //     <Divider className="text-black">OR</Divider>
+
+    //     <div className="text-black">
+    //       Don&apos;t have an account?{" "}
+    //       <Link href="/auth/register" className="underline">
+    //         create one
+    //       </Link>
+    //     </div>
+
+    //     {/* Error Message for Form Submission */}
+    //     {error && (
+    //       <Typography
+    //         color="error"
+    //         variant="body2"
+    //         align="center"
+    //         className="text-black"
+    //       >
+    //         {error}
+    //       </Typography>
+    //     )}
+
+    //     {/* Google Sign-In Button */}
+    //     <Button
+    //       variant="outlined"
+    //       color="primary"
+    //       fullWidth
+    //       sx={{ marginTop: "16px" }}
+    //       onClick={handleGoogleSignIn}
+    //     >
+    //       Sign in with Google
+    //     </Button>
+    //   </div>
+    // </div>
+
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img
+          alt="Your Company"
+          src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+          className="mx-auto h-10 w-auto"
+        />
+        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight hover:text-hover">
+          Sign in to your account
+        </h2>
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={validationSchema}
+          className="space-y-6"
           onSubmit={handleSubmit}
-          className="border flex flex-col gap-3"
         >
           {({ errors, touched }) => (
             <Form className="flex flex-col gap-4">
-              {/* Email Input */}
-              <Field
-                name="email"
-                as={TextField}
-                label="Email"
-                placeholder="abc@example.com"
-                variant="outlined"
-                fullWidth
-                error={touched.email && Boolean(errors.email)}
-                helperText={touched.email && errors.email}
-              />
-              {/* Password Input */}
-              <Field
-                name="password"
-                as={TextField}
-                label="Password"
-                placeholder="*******"
-                type="password"
-                variant="outlined"
-                fullWidth
-                error={touched.password && Boolean(errors.password)}
-                helperText={touched.password && errors.password}
-              />
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm/6 font-medium text-gray-900 dark:text-gray-100"
+                >
+                  Email address
+                </label>
+                <div className="mt-2">
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    as={TextField}
+                    required
+                    autoComplete="email"
+                    placeholder="abc@example.com"
+                    className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    error={touched.email && Boolean(errors.email)}
+                    helperText={touched.email && errors.email}
+                  />
+                </div>
+              </div>
 
-              {/* Reset password */}
-              <Link href="/forgot-password" className="text-right underline">
-                Forgot Password
-              </Link>
+              <div>
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm/6 font-medium text-gray-900 dark:text-gray-100"
+                  >
+                    Password
+                  </label>
+                  <div className="text-sm">
+                    <a href="#" className="font-semibold hover:text-hover">
+                      Forgot password?
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                    autoComplete="current-password"
+                    placeholder="********"
+                    className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
 
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                sx={{ padding: "10px" }}
-              >
-                Sign In
-              </Button>
+              <Divider>OR</Divider>
+
+              <Stack gap={2}>
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign in
+                </button>
+
+                {/* Google Sign-In Button */}
+                <button
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={handleGoogleSignIn}
+                >
+                  Sign in with Google
+                </button>
+              </Stack>
             </Form>
           )}
         </Formik>
 
-        <Divider>OR</Divider>
-
-        <div>
-          Don&apos;t have an account?{" "}
-          <Link href="/auth/register" className="underline">
-            create one
-          </Link>
-        </div>
-
-        {/* Error Message for Form Submission */}
-        {error && (
-          <Typography color="error" variant="body2" align="center">
-            {error}
-          </Typography>
-        )}
-
-        {/* Google Sign-In Button */}
-        <Button
-          variant="outlined"
-          color="primary"
-          fullWidth
-          sx={{ marginTop: "16px" }}
-          onClick={handleGoogleSignIn}
-        >
-          Sign in with Google
-        </Button>
+        <p className="mt-10 text-center text-sm/6 text-gray-500 dark:text-gray-400">
+          Not a member?{" "}
+          <a
+            href="#"
+            className="font-semibold text-indigo-600 hover:text-indigo-500"
+          >
+            Start a 14 day free trial
+          </a>
+        </p>
       </div>
     </div>
   );
