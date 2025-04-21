@@ -13,6 +13,7 @@ const constant = {
 
   sidebarItemsBottom: [
     { label: "Settings", icon: <Settings /> },
+    { label: "Profile", icon: <Person /> },
     { label: "Log Out", icon: <Logout /> },
   ],
 

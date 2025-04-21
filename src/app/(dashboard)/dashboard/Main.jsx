@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import UserList from "./Users/UserList";
 import DashboardHome from "./Home/page";
 import LogOut from "@/app/auth/logout";
+import ProfilePage from "./profile/page";
+import AccountPage from "./account/page";
 
 export default function MainContainer({ value }) {
   const renderContent = () => {
@@ -15,8 +17,10 @@ export default function MainContainer({ value }) {
         return <UserList />;
       case "Log Out":
         return <LogOut />;
+      case "Profile":
+        return <ProfilePage />;
       case "Settings":
-        return <Typography variant="h6">Settings Content</Typography>;
+        return <AccountPage />;
       default:
         return (
           <Typography variant="h6">Select a tab to see content</Typography>

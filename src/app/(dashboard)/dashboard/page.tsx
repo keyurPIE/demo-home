@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  createTheme,
-  styled,
-  ThemeProvider,
-  useTheme,
-} from "@mui/material/styles";
+import { styled, ThemeProvider, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,6 +13,7 @@ import MainContainer from "./Main";
 import dynamic from "next/dynamic";
 import ProtectedRoute from "@/app/component/auth/ProtectedRoute";
 import Loading from "@/app/loading";
+import mainTheme from "@/app/theme";
 const Sidebar = dynamic(() => import("./Sidebar"), { ssr: false });
 
 const drawerWidth = 260;
@@ -74,18 +70,6 @@ const AppBar = styled(MuiAppBar, {
     },
   ],
 }));
-
-const mainTheme = createTheme({
-  typography: {
-    fontWeightLight: 600,
-    fontWeightRegular: 600,
-    fontWeightMedium: 600,
-    fontWeightBold: 600,
-    button: {
-      fontWeight: 600, // Ensure buttons have font weight 600
-    },
-  },
-});
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",

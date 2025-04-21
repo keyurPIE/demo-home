@@ -49,7 +49,7 @@ export default function UserCard({
         >
           <Image
             className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
-            src={item.profile || "/user-image-two.png"}
+            src={item.profile || "/user-image-two.jpg"}
             alt=""
             width={96}
             height={96}
