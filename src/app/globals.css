@@ -8,13 +8,13 @@
   --text-hover: #7f22fe;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #1f2937;
     --foreground: #a684ff;
     --text-hover: #7f22fe;
   }
-}
+} */
 
 body {
   color: var(--foreground);

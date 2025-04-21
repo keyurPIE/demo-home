@@ -1,5 +1,4 @@
-import { initializeApp } from "firebase/app";
-// import { getAuth, GoogleAuthProvider } from "firebase/auth"; // If using Firebase Authentication
+import { getApp, getApps, initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -9,7 +8,6 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // If using Firestore
-// import { getDatabase } from "firebase/database"; // If using Realtime Database
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -21,15 +19,15 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if no apps are already initialized
+const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-const auth = getAuth(app); // Initialize Authentication
+const auth = getAuth(app); // Initialize Firebase Authentication
 const db = getFirestore(app); // Initialize Firestore (or change it to getDatabase if using Realtime DB)
 
-// Initialize Google Auth provider
-const googleProvider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider(); // Initialize Google Auth provider
 
-// export { auth, db }; // Export Firebase services you need
+// Export necessary functions
 export {
   auth,
   db,

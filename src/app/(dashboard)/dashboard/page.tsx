@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createTheme,
   styled,
@@ -16,8 +16,8 @@ import AppBarHeader from "./Appbar";
 import { useMediaQuery } from "@mui/material";
 import MainContainer from "./Main";
 import dynamic from "next/dynamic";
-import Loading from "./loading";
-import withAuth from "@/lib/withAuth";
+import ProtectedRoute from "@/app/component/auth/ProtectedRoute";
+import Loading from "@/app/loading";
 const Sidebar = dynamic(() => import("./Sidebar"), { ssr: false });
 
 const drawerWidth = 260;
@@ -98,12 +98,16 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const Dashboard = () => {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
-  const [currentUrl, setCurrentUrl] = React.useState("Home");
-  const [loading, setLoading] = React.useState(false); // Manage loading state
+  const [open, setOpen] = useState(true);
+  const [currentUrl, setCurrentUrl] = useState("Home");
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
     if (isMobile) {
       setOpen(false);
     } else {
@@ -116,67 +120,61 @@ const Dashboard = () => {
   };
 
   const handleItemClick = (item: string) => {
-    setLoading(true);
     setCurrentUrl(item);
-    if (item === "Log Out") {
-      console.log("clicked item!", item);
-    }
-    setTimeout(() => {
-      setLoading(false); // Set loading to false after a short delay (simulating content load)
-    }, 1000); // Adjust the time as needed
   };
 
   return (
-    <ThemeProvider theme={mainTheme}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          open={open}
-          sx={{
-            backgroundColor: "#fff",
-            boxShadow: "none",
-            border: "2px solid #D6D6D6",
-          }}
-        >
-          <Toolbar>
-            <IconButton
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={[{ mr: 2 }, open && { display: "none" }]}
+    <ProtectedRoute>
+      {loading ? (
+        <Loading />
+      ) : (
+        <ThemeProvider theme={mainTheme}>
+          <Box sx={{ display: "flex" }}>
+            <CssBaseline />
+            <AppBar
+              position="fixed"
+              open={open}
+              sx={{
+                backgroundColor: "#fff",
+                boxShadow: "none",
+                border: "2px solid #D6D6D6",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <AppBarHeader />
-          </Toolbar>
-        </AppBar>
+              <Toolbar>
+                <IconButton
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  sx={[{ mr: 2 }, open && { display: "none" }]}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <AppBarHeader />
+              </Toolbar>
+            </AppBar>
 
-        {/* side bar component */}
-        <Sidebar
-          open={open}
-          onClose={() => setOpen(false)}
-          onItemClick={handleItemClick}
-          currentSelection={currentUrl}
-          variant={isMobile ? "temporary" : "persistent"}
-          anchor="left" // Sidebar opens from the left by default
-        />
+            {/* side bar component */}
+            <Sidebar
+              open={open}
+              onClose={() => setOpen(false)}
+              onItemClick={handleItemClick}
+              currentSelection={currentUrl}
+              variant={isMobile ? "temporary" : "persistent"}
+              anchor="left" // Sidebar opens from the left by default
+            />
 
-        {/* Main */}
-        <Main open={open}>
-          {loading ? (
-            <Loading /> // Show loading spinner while loading
-          ) : (
-            <React.Suspense fallback={<Loading />}>
-              <DrawerHeader />
-              <MainContainer value={currentUrl} />
-            </React.Suspense>
-          )}
-        </Main>
-      </Box>
-    </ThemeProvider>
+            {/* Main */}
+            <Main open={open}>
+              <>
+                <DrawerHeader />
+                <MainContainer value={currentUrl} />
+              </>
+            </Main>
+          </Box>
+        </ThemeProvider>
+      )}
+    </ProtectedRoute>
   );
 };
 
-export default withAuth(Dashboard);
-// export default Dashboard;
+export default Dashboard;

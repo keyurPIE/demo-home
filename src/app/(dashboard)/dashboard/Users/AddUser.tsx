@@ -207,7 +207,6 @@ export default function AddUser({ setAddUser, addUserToList }: AddUserProps) {
     // }
     // const files = Array.from(event.target.files);
     const files = event.target.files;
-    console.log("✌️files --->", files);
     if (files) {
       const fileURLs = Array.from(files).map((file) =>
         URL.createObjectURL(file)
@@ -245,7 +244,6 @@ export default function AddUser({ setAddUser, addUserToList }: AddUserProps) {
       const fileURL = URL.createObjectURL(file);
       setProfileImagePreview(fileURL);
       setFieldValue("profile", fileURL); // Save the profile image URL
-      // setFieldValue("profile", file); // Save the profile image URL
     }
   };
 
