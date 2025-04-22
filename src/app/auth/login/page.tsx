@@ -32,6 +32,7 @@ export default function Page() {
   // Handle Form Submission with Formik
   const handleSubmit = async (values: { email: string; password: string }) => {
     const res = await signIn("credentials", { ...values, redirect: false });
+    console.log("✌️res --->", res);
 
     if (res?.ok) {
       router.push("/");
@@ -43,7 +44,9 @@ export default function Page() {
 
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("✌️result --->", result);
+
       router.push("/");
     } catch (error) {
       console.log("Error: ", error);

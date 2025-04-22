@@ -15,6 +15,7 @@
     "@mui/material": "^6.4.1",
     "@next-auth/firebase-adapter": "^2.0.1",
     "@reduxjs/toolkit": "^2.6.1",
+    "date-fns": "^4.1.0",
     "firebase": "^11.3.0",
     "formik": "^2.4.6",
     "next": "15.1.6",

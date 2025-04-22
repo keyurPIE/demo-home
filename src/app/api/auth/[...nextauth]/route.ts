@@ -1,4 +1,5 @@
 import { auth } from "@/lib/firebase";
+import { addUserData } from "@/services/userService";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -45,6 +46,19 @@ const handler = NextAuth({
     signOut: "/auth/login",
   },
   callbacks: {
+    async signIn({ user }) {
+      if (user) {
+        const uid = user.id || user.uid;
+        const res = await addUserData(uid, {
+          name: user.name,
+          email: user.email,
+          createdAt: new Date(),
+        });
+        console.log("res****", res);
+      }
+
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) token.uid = user.id;
       return token;

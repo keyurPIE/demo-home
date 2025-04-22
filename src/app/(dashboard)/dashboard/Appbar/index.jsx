@@ -32,7 +32,7 @@ export default function AppBarHeader() {
             </Badge>
           </IconButton>
         </Box>
-        <div class="p-3">
+        <div className="p-3">
           <img
             className="size-8 rounded-full ring-2 ring-gray-500"
             src="/user-image-two.jpg"

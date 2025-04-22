@@ -44,12 +44,18 @@ export default function Page() {
     password: string;
   }) => {
     const { email, password, name } = values;
-    console.log("✌️email, password, name --->", email, password, name);
     if (!email || !password || !name) {
       setError("All fields are required");
     }
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("userCredential --->", userCredential);
+
       router.push("/"); // Redirect to dashboard after successful sign-up
     } catch (error) {
       console.log("✌️error --->", error);

@@ -1,15 +1,16 @@
 import React from "react";
 import { Chip, Divider, Stack, Typography } from "@mui/material";
-import { HiMiniQuestionMarkCircle } from "react-icons/hi2";
 import Image from "next/image";
 import CommonButton from "@/app/component/Button";
 import { FaUserEdit } from "react-icons/fa";
+import CommonTooltip from "@/app/component/Tooltip";
 
 export default function UserInfo() {
   return (
     <Stack gap={3} alignItems="flex-start">
       <h2 className="flex gap-2 items-center text-base md:text-xl">
-        Profile picture <HiMiniQuestionMarkCircle />
+        Profile picture
+        <CommonTooltip title="You can change your profile photo here, you can upload a new photo from your computer." />
       </h2>
 
       <div className="flex gap-2">
